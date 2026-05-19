@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>58.0</apiVersion>
+    <isExposed>true</isExposed>
+    <masterLabel>Tableau Dashboard</masterLabel>
+    <description>Embeds a Tableau dashboard on a Lightning record page.</description>
+    <targets>
+        <target>lightning__RecordPage</target>
+        <target>lightning__AppPage</target>
+        <target>lightning__HomePage</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightning__RecordPage">
+            <objects>
+                <object>Lead</object>
+                <object>Account</object>
+                <object>Contact</object>
+                <object>Opportunity</object>
+            </objects>
+            <property
+                name="vizUrl"
+                type="String"
+                label="Dashboard URL"
+                description="Full URL to the Tableau view (same URL used in Tableau Cloud)."
+                default="https://10ax.online.tableau.com/t/sachin-salesforce-tableaupoc/views/sachinsheet/Dashboard1"
+            />
+            <property name="height" type="Integer" label="Height (px)" default="550" />
+            <property name="cardTitle" type="String" label="Card Title" default="Tableau Dashboard" />
+            <property name="showToolbar" type="Boolean" label="Show Toolbar" default="false" />
+            <property name="showTabs" type="Boolean" label="Show Sheet Tabs" default="false" />
+            <property
+                name="filterOnRecordId"
+                type="Boolean"
+                label="Filter by Record Id"
+                default="false"
+                description="When enabled, passes the current record Id to Tableau as a URL filter parameter."
+            />
+            <property
+                name="filterFieldName"
+                type="String"
+                label="Filter Parameter Name"
+                default="Id"
+                description="Tableau URL parameter name used when filtering by record Id."
+            />
+        </targetConfig>
+        <targetConfig targets="lightning__AppPage,lightning__HomePage">
+            <property
+                name="vizUrl"
+                type="String"
+                label="Dashboard URL"
+                default="https://10ax.online.tableau.com/t/sachin-salesforce-tableaupoc/views/sachinsheet/Dashboard1"
+            />
+            <property name="height" type="Integer" label="Height (px)" default="550" />
+            <property name="cardTitle" type="String" label="Card Title" default="Tableau Dashboard" />
+            <property name="showToolbar" type="Boolean" label="Show Toolbar" default="false" />
+            <property name="showTabs" type="Boolean" label="Show Sheet Tabs" default="false" />
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

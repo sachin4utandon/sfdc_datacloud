@@ -1,0 +1,95 @@
+<apex:page
+    controller="TableauVFController"
+    showHeader="false"
+    sidebar="false"
+    standardStylesheets="false"
+    applyHtmlTag="false"
+    applyBodyTag="false"
+>
+<html>
+    <head>
+        <script
+            type="module"
+            src="https://10ax.online.tableau.com/javascripts/api/tableau.embedding.3.latest.min.js"
+        ></script>
+        <style>
+            html,
+            body {
+                margin: 0;
+                padding: 0;
+                width: 100%;
+                height: 100%;
+                overflow: hidden;
+                background: white;
+            }
+
+            #tableauContainer {
+                width: 100%;
+                height: 100vh;
+            }
+
+            tableau-viz {
+                width: 100%;
+                height: 100%;
+            }
+
+            .error-banner {
+                padding: 1rem;
+                color: #c23934;
+                font-family: Arial, sans-serif;
+            }
+        </style>
+    </head>
+    <body>
+        <apex:outputPanel rendered="{!NOT(hasToken)}">
+            <div class="error-banner">
+                Tableau authentication failed:
+                <apex:outputText value="{!errorMessage}" />
+            </div>
+        </apex:outputPanel>
+
+        <div id="tableauContainer"></div>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', async function () {
+                try {
+                    const jwtToken = '{!JSENCODE(jwtToken)}';
+                    if (!jwtToken) {
+                        console.error('VF PAGE: No JWT token from Apex');
+                        return;
+                    }
+
+                    console.log('VF PAGE LOADED');
+
+                    const container = document.getElementById('tableauContainer');
+                    const viz = document.createElement('tableau-viz');
+
+                    viz.setAttribute('token', jwtToken);
+                    viz.setAttribute('token-type', 'jwt');
+                    viz.setAttribute(
+                        'src',
+                        'https://10ax.online.tableau.com/t/sachin-salesforce-tableaupoc/views/sachinsheet/Dashboard1?:showVizHome=no'
+                    );
+                    viz.setAttribute('toolbar', 'bottom');
+                    viz.setAttribute('hide-tabs', '');
+                    viz.style.width = '100%';
+                    viz.style.height = '100vh';
+
+                    viz.addEventListener('firstinteractive', function () {
+                        console.log('TABLEAU DASHBOARD LOADED');
+                    });
+
+                    viz.addEventListener('vizloaderror', function (event) {
+                        console.error('TABLEAU ERROR', event);
+                    });
+
+                    container.appendChild(viz);
+                    console.log('VIZ APPENDED');
+                } catch (e) {
+                    console.error('VF ERROR', e);
+                }
+            });
+        </script>
+    </body>
+</html>
+</apex:page>

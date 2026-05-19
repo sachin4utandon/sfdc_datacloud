@@ -1,0 +1,9 @@
+.viz-host {
+    width: 100%;
+    min-height: 320px;
+}
+
+.viz-host > * {
+    display: block;
+    width: 100%;
+}

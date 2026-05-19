@@ -91,19 +91,8 @@
         <itemInstances>
             <componentInstance>
                 <componentInstanceProperties>
-                    <name>customQueryParameters</name>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>debugMode</name>
-                    <value>true</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>filterOnRecordId</name>
-                    <value>false</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>forceRefresh</name>
-                    <value>false</value>
+                    <name>cardTitle</name>
+                    <value>Lead Analytics</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>height</name>
@@ -114,15 +103,8 @@
                     <value>false</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
-                    <name>showToolbar</name>
-                    <value>false</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>siteId</name>
-                    <value>4ae9b759-df00-4b1a-b46d-0b72b53585b8</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>tabAdvancedFilter</name>
+                    <name>toolbar</name>
+                    <value>hidden</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>useJwt</name>
@@ -132,8 +114,8 @@
                     <name>vizUrl</name>
                     <value>https://10ax.online.tableau.com/t/sachin-salesforce-tableaupoc/views/sachinsheet/Dashboard1</value>
                 </componentInstanceProperties>
-                <componentName>tableau:tableauViz</componentName>
-                <identifier>tableau_tableauViz</identifier>
+                <componentName>c:tableau_viz</componentName>
+                <identifier>c_tableau_viz</identifier>
             </componentInstance>
         </itemInstances>
         <name>Facet-3e00cee7-cf1a-4060-8a08-50171f42e5dd</name>

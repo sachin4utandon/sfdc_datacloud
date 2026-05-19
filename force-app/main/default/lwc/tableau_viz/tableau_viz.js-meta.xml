@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>58.0</apiVersion>
+    <isExposed>true</isExposed>
+    <masterLabel>Tableau Viz</masterLabel>
+    <description
+    >Embeds Tableau using Embedding API v3 from static resource tablue_min. Optional JWT for Connected App auth.</description>
+    <targets>
+        <target>lightning__RecordPage</target>
+        <target>lightning__AppPage</target>
+        <target>lightning__HomePage</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightning__RecordPage">
+            <objects>
+                <object>Lead</object>
+                <object>Account</object>
+                <object>Contact</object>
+                <object>Opportunity</object>
+            </objects>
+            <property
+                name="vizUrl"
+                type="String"
+                label="View URL"
+                description="Full https URL to the published Tableau view."
+                default="https://10ax.online.tableau.com/t/sachin-salesforce-tableaupoc/views/sachinsheet/Dashboard1"
+            />
+            <property
+                name="useJwt"
+                type="Boolean"
+                label="Use Connected App JWT"
+                default="true"
+                description="When enabled, Apex mints a JWT for the current user (Tableau email must match Salesforce email)."
+            />
+            <property name="height" type="Integer" label="Height (px)" default="550" />
+            <property name="cardTitle" type="String" label="Card title" default="Tableau" />
+            <property
+                name="toolbar"
+                type="String"
+                label="Toolbar"
+                description="top | bottom | hidden"
+                default="hidden"
+            />
+            <property name="showTabs" type="Boolean" label="Show sheet tabs" default="false" />
+        </targetConfig>
+        <targetConfig targets="lightning__AppPage,lightning__HomePage">
+            <property
+                name="vizUrl"
+                type="String"
+                label="View URL"
+                default="https://10ax.online.tableau.com/t/sachin-salesforce-tableaupoc/views/sachinsheet/Dashboard1"
+            />
+            <property name="useJwt" type="Boolean" label="Use Connected App JWT" default="true" />
+            <property name="height" type="Integer" label="Height (px)" default="550" />
+            <property name="cardTitle" type="String" label="Card title" default="Tableau" />
+            <property name="toolbar" type="String" label="Toolbar" default="hidden" />
+            <property name="showTabs" type="Boolean" label="Show sheet tabs" default="false" />
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

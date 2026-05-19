@@ -1,0 +1,21 @@
+<template>
+    <lightning-card title={cardTitle} icon-name="custom:custom63">
+        <template lwc:if={scriptError}>
+            <div class="slds-p-around_medium slds-text-color_error" role="alert">{scriptError}</div>
+        </template>
+        <template lwc:elseif={tokenError}>
+            <div class="slds-p-around_medium slds-text-color_error" role="alert">{tokenError}</div>
+        </template>
+        <template lwc:elseif={validationError}>
+            <div class="slds-p-around_medium slds-text-color_error" role="alert">{validationError}</div>
+        </template>
+        <template lwc:elseif={loading}>
+            <div class="slds-p-around_large slds-align_absolute-center">
+                <lightning-spinner alternative-text="Loading Tableau"></lightning-spinner>
+            </div>
+        </template>
+        <template lwc:elseif={isReady}>
+            <div class="viz-host" lwc:dom="manual" data-viz-host></div>
+        </template>
+    </lightning-card>
+</template>
