@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Bogo_Customer__c</fullName>
+    <label>Bogo Customer</label>
+    <type>MasterDetail</type>
+    <referenceTo>Bogo_Customer__c</referenceTo>
+    <relationshipName>Trips_Planned</relationshipName>
+    <relationshipLabel>Trips Planned</relationshipLabel>
+    <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    <reparentableMasterDetail>true</reparentableMasterDetail>
+</CustomField>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <deploymentStatus>Deployed</deploymentStatus>
+    <label>Bike Rental</label>
+    <pluralLabel>Bike Rentals</pluralLabel>
+    <sharingModel>ControlledByParent</sharingModel>
+    <nameField>
+        <label>Rental ID</label>
+        <type>AutoNumber</type>
+        <displayFormat>RNT-{00000}</displayFormat>
+    </nameField>
+</CustomObject>

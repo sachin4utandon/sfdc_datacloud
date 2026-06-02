@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Activity_Type__c</fullName>
+    <label>Activity Type</label>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Trekking</fullName>
+                <default>false</default>
+                <label>Trekking</label>
+            </value>
+            <value>
+                <fullName>Mountain Biking</fullName>
+                <default>false</default>
+                <label>Mountain Biking</label>
+            </value>
+            <value>
+                <fullName>Beach Exploration</fullName>
+                <default>false</default>
+                <label>Beach Exploration</label>
+            </value>
+            <value>
+                <fullName>River Rafting</fullName>
+                <default>false</default>
+                <label>River Rafting</label>
+            </value>
+            <value>
+                <fullName>Camping</fullName>
+                <default>false</default>
+                <label>Camping</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>
